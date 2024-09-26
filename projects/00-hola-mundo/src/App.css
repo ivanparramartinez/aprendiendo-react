@@ -44,6 +44,7 @@
 
 .tw-followCard {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   color: #fff;
   font-size: 0.8rem;

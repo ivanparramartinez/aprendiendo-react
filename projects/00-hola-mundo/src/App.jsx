@@ -35,26 +35,36 @@ function App() {
 export default App
  */
 import "./App.css";
+import { TwitterFollowCard } from "./TwitterFollowCard";
 
 export function App() {
-  return (
-    // <article style={{ display: "flex", alignItems: "center", color: "#fff" }}>
-    <article className="tw-followCard">
-      <header className="tw-followCard-header">
-        <img
-          className="tw-followCard-avatar"
-          src="https://placekitten.com/200/200"
-          alt="Kitten"
-        />
-        <div className="tw-followCard-info">
-          <strong>Ivan Parra</strong>
-          <span className="tw-followCard-infoUserName">@ivanparra</span>
-        </div>
-      </header>
+  const formatUserName = (userName) => `@${userName}`;
 
-      <aside>
-        <button className="tw-followCard-button">Seguir</button>
-      </aside>
-    </article>
+  // const formattedUserName = <span>@midudev</span>;
+
+  return (
+    <section className="App">
+      {/* <TwitterFollowCard
+        userName="ivanparra"
+        name="Ivan Parra"
+        isFollowing={true}
+      /> */}
+      {/* <TwitterFollowCard
+        userName="shakira"
+        name="Shakira"
+        isFollowing
+        // formattedUserName={formattedUserName}
+      />
+      <TwitterFollowCard
+        userName="ivanparra"
+        name="Ivan Parra"
+        isFollowing={true}
+        // formattedUserName={formattedUserName}
+      /> */}
+      <TwitterFollowCard userName="midudev" isFollowing>
+        <strong>Miguel Ángel Durán</strong>
+        Incluso otras cosas
+      </TwitterFollowCard>
+    </section>
   );
 }
