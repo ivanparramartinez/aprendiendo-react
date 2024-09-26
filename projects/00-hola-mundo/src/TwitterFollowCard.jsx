@@ -1,7 +1,7 @@
 export function TwitterFollowCard({
   formatUserName,
   children,
-  userName,
+  userName = 'unknown',
   name,
   isFollowing = false,
 }) {
