@@ -38,9 +38,27 @@ import "./App.css";
 import { TwitterFollowCard } from "./TwitterFollowCard";
 import { useState } from "react";
 
+const users = [
+  {
+    userName: "midudev",
+    name: "Miguel Ángel Durán",
+    isFollowing: false,
+  },
+  {
+    userName: "shakira",
+    name: "Shakira",
+    isFollowing: true,
+  },
+  {
+    userName: "beyonce",
+    name: "Beyoncé",
+    isFollowing: false,
+  },
+];
+
 export function App() {
   const formatUserName = (userName) => `@${userName}`;
-  const [name, setName] = useState('midudev');
+  const [name, setName] = useState("midudev");
 
   // const formattedUserName = <span>@midudev</span>;
 
@@ -63,16 +81,39 @@ export function App() {
         isFollowing={true}
         // formattedUserName={formattedUserName}
       /> */}
-      <TwitterFollowCard userName={name}>
+      {/* <TwitterFollowCard userName={name}>
         <strong>Miguel Ángel Durán</strong>
         Incluso otras cosas
       </TwitterFollowCard>  
       <TwitterFollowCard userName="shakira" initialIsFollowing>
         <strong>Shakira</strong>
         Incluso otras cosas
-      </TwitterFollowCard>
+      </TwitterFollowCard> */}
+      {/* {users.map((user) => {
+        const { userName, name, isFollowing } = user;
+        return (
+          <TwitterFollowCard
+            key={userName}
+            userName={userName}
+            initialIsFollowing={isFollowing}
+            formatUserName={formatUserName}
+          >
+            <strong>{name}</strong>
+          </TwitterFollowCard>
+        );
+      })} */}
+      {users.map(({ userName, name, isFollowing }) => (
+        <TwitterFollowCard
+          key={userName}
+          userName={userName}
+          initialIsFollowing={isFollowing}
+          formatUserName={formatUserName}
+        >
+          <strong>{name}</strong>
+        </TwitterFollowCard>
+      ))}
 
-      <button onClick={()=> setName('beyonce')}>Cambio nombre</button>
+      <button onClick={() => setName("beyonce")}>Cambio nombre</button>
     </section>
   );
 }
