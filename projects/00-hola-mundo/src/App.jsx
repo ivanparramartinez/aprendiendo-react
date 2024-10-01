@@ -36,9 +36,11 @@ export default App
  */
 import "./App.css";
 import { TwitterFollowCard } from "./TwitterFollowCard";
+import { useState } from "react";
 
 export function App() {
   const formatUserName = (userName) => `@${userName}`;
+  const [name, setName] = useState('midudev');
 
   // const formattedUserName = <span>@midudev</span>;
 
@@ -61,10 +63,16 @@ export function App() {
         isFollowing={true}
         // formattedUserName={formattedUserName}
       /> */}
-      <TwitterFollowCard userName="midudev" isFollowing>
+      <TwitterFollowCard userName={name}>
         <strong>Miguel Ángel Durán</strong>
         Incluso otras cosas
+      </TwitterFollowCard>  
+      <TwitterFollowCard userName="shakira" initialIsFollowing>
+        <strong>Shakira</strong>
+        Incluso otras cosas
       </TwitterFollowCard>
+
+      <button onClick={()=> setName('beyonce')}>Cambio nombre</button>
     </section>
   );
 }
